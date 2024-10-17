@@ -1,0 +1,493 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		7893419F2CB955CA00803281 /* SwiftUIIntrospect in Frameworks */ = {isa = PBXBuildFile; productRef = 7893419E2CB955CA00803281 /* SwiftUIIntrospect */; };
+		789341A62CB9D82200803281 /* KeychainSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 789341A52CB9D82200803281 /* KeychainSwift */; };
+		789342852CBA96BE00803281 /* FirebaseAuthCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = 789342842CBA96BE00803281 /* FirebaseAuthCombine-Community */; };
+		78E88C422CB5CBA300A262A3 /* DifferenceKit in Frameworks */ = {isa = PBXBuildFile; productRef = 78E88C412CB5CBA300A262A3 /* DifferenceKit */; };
+		78E88C452CB5CBAD00A262A3 /* InputBarAccessoryView in Frameworks */ = {isa = PBXBuildFile; productRef = 78E88C442CB5CBAD00A262A3 /* InputBarAccessoryView */; };
+		78E88C482CB5CBBE00A262A3 /* ChatLayout in Frameworks */ = {isa = PBXBuildFile; productRef = 78E88C472CB5CBBE00A262A3 /* ChatLayout */; };
+		78E88C4C2CB5CBBE00A262A3 /* ChatLayoutStatic in Frameworks */ = {isa = PBXBuildFile; productRef = 78E88C4B2CB5CBBE00A262A3 /* ChatLayoutStatic */; };
+		78E88C542CB8258F00A262A3 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 78E88C532CB8258F00A262A3 /* FirebaseAuth */; };
+		78E88C562CB8258F00A262A3 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 78E88C552CB8258F00A262A3 /* FirebaseFirestore */; };
+		78E88C582CB8258F00A262A3 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 78E88C572CB8258F00A262A3 /* FirebaseStorage */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		78E88AF82CB5C93400A262A3 /* TelegramUIKit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TelegramUIKit.app; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		78E88B0A2CB5C93600A262A3 /* Exceptions for "TelegramUIKit" folder in "TelegramUIKit" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = 78E88AF72CB5C93400A262A3 /* TelegramUIKit */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		78E88AFA2CB5C93400A262A3 /* TelegramUIKit */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				78E88B0A2CB5C93600A262A3 /* Exceptions for "TelegramUIKit" folder in "TelegramUIKit" target */,
+			);
+			path = TelegramUIKit;
+			sourceTree = "<group>";
+		};
+/* End PBXFileSystemSynchronizedRootGroup section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		78E88AF52CB5C93400A262A3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				789341A62CB9D82200803281 /* KeychainSwift in Frameworks */,
+				78E88C482CB5CBBE00A262A3 /* ChatLayout in Frameworks */,
+				78E88C542CB8258F00A262A3 /* FirebaseAuth in Frameworks */,
+				78E88C422CB5CBA300A262A3 /* DifferenceKit in Frameworks */,
+				78E88C4C2CB5CBBE00A262A3 /* ChatLayoutStatic in Frameworks */,
+				78E88C582CB8258F00A262A3 /* FirebaseStorage in Frameworks */,
+				78E88C452CB5CBAD00A262A3 /* InputBarAccessoryView in Frameworks */,
+				78E88C562CB8258F00A262A3 /* FirebaseFirestore in Frameworks */,
+				7893419F2CB955CA00803281 /* SwiftUIIntrospect in Frameworks */,
+				789342852CBA96BE00803281 /* FirebaseAuthCombine-Community in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		789342832CBA96BE00803281 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		78E88AEF2CB5C93400A262A3 = {
+			isa = PBXGroup;
+			children = (
+				78E88AFA2CB5C93400A262A3 /* TelegramUIKit */,
+				789342832CBA96BE00803281 /* Frameworks */,
+				78E88AF92CB5C93400A262A3 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		78E88AF92CB5C93400A262A3 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				78E88AF82CB5C93400A262A3 /* TelegramUIKit.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		78E88AF72CB5C93400A262A3 /* TelegramUIKit */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 78E88B0B2CB5C93600A262A3 /* Build configuration list for PBXNativeTarget "TelegramUIKit" */;
+			buildPhases = (
+				78E88AF42CB5C93400A262A3 /* Sources */,
+				78E88AF52CB5C93400A262A3 /* Frameworks */,
+				78E88AF62CB5C93400A262A3 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				78E88AFA2CB5C93400A262A3 /* TelegramUIKit */,
+			);
+			name = TelegramUIKit;
+			packageProductDependencies = (
+				78E88C412CB5CBA300A262A3 /* DifferenceKit */,
+				78E88C442CB5CBAD00A262A3 /* InputBarAccessoryView */,
+				78E88C472CB5CBBE00A262A3 /* ChatLayout */,
+				78E88C4B2CB5CBBE00A262A3 /* ChatLayoutStatic */,
+				78E88C532CB8258F00A262A3 /* FirebaseAuth */,
+				78E88C552CB8258F00A262A3 /* FirebaseFirestore */,
+				78E88C572CB8258F00A262A3 /* FirebaseStorage */,
+				7893419E2CB955CA00803281 /* SwiftUIIntrospect */,
+				789341A52CB9D82200803281 /* KeychainSwift */,
+				789342842CBA96BE00803281 /* FirebaseAuthCombine-Community */,
+			);
+			productName = TelegramUIKit;
+			productReference = 78E88AF82CB5C93400A262A3 /* TelegramUIKit.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		78E88AF02CB5C93400A262A3 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1600;
+				LastUpgradeCheck = 1600;
+				TargetAttributes = {
+					78E88AF72CB5C93400A262A3 = {
+						CreatedOnToolsVersion = 16.0;
+					};
+				};
+			};
+			buildConfigurationList = 78E88AF32CB5C93400A262A3 /* Build configuration list for PBXProject "TelegramUIKit" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 78E88AEF2CB5C93400A262A3;
+			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				78E88C402CB5CBA300A262A3 /* XCRemoteSwiftPackageReference "DifferenceKit" */,
+				78E88C432CB5CBAD00A262A3 /* XCRemoteSwiftPackageReference "InputBarAccessoryView" */,
+				78E88C462CB5CBBE00A262A3 /* XCRemoteSwiftPackageReference "ChatLayout" */,
+				78E88C522CB8258F00A262A3 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				7893419D2CB955CA00803281 /* XCRemoteSwiftPackageReference "SwiftUI-Introspect" */,
+				789341A42CB9D82100803281 /* XCRemoteSwiftPackageReference "keychain-swift" */,
+			);
+			preferredProjectObjectVersion = 77;
+			productRefGroup = 78E88AF92CB5C93400A262A3 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				78E88AF72CB5C93400A262A3 /* TelegramUIKit */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		78E88AF62CB5C93400A262A3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		78E88AF42CB5C93400A262A3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		78E88B0C2CB5C93600A262A3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = M86B7679LG;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = TelegramUIKit/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = surexnx.TelegramUIKit;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		78E88B0D2CB5C93600A262A3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = M86B7679LG;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = TelegramUIKit/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = surexnx.TelegramUIKit;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		78E88B0E2CB5C93600A262A3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		78E88B0F2CB5C93600A262A3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		78E88AF32CB5C93400A262A3 /* Build configuration list for PBXProject "TelegramUIKit" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				78E88B0E2CB5C93600A262A3 /* Debug */,
+				78E88B0F2CB5C93600A262A3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		78E88B0B2CB5C93600A262A3 /* Build configuration list for PBXNativeTarget "TelegramUIKit" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				78E88B0C2CB5C93600A262A3 /* Debug */,
+				78E88B0D2CB5C93600A262A3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		7893419D2CB955CA00803281 /* XCRemoteSwiftPackageReference "SwiftUI-Introspect" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/siteline/SwiftUI-Introspect";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.3.0;
+			};
+		};
+		789341A42CB9D82100803281 /* XCRemoteSwiftPackageReference "keychain-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/evgenyneu/keychain-swift";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 24.0.0;
+			};
+		};
+		78E88C402CB5CBA300A262A3 /* XCRemoteSwiftPackageReference "DifferenceKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ra1028/DifferenceKit";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.3.0;
+			};
+		};
+		78E88C432CB5CBAD00A262A3 /* XCRemoteSwiftPackageReference "InputBarAccessoryView" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/nathantannar4/InputBarAccessoryView";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 6.4.0;
+			};
+		};
+		78E88C462CB5CBBE00A262A3 /* XCRemoteSwiftPackageReference "ChatLayout" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ekazaev/ChatLayout";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.10;
+			};
+		};
+		78E88C522CB8258F00A262A3 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = exactVersion;
+				version = 11.2.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		7893419E2CB955CA00803281 /* SwiftUIIntrospect */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7893419D2CB955CA00803281 /* XCRemoteSwiftPackageReference "SwiftUI-Introspect" */;
+			productName = SwiftUIIntrospect;
+		};
+		789341A52CB9D82200803281 /* KeychainSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 789341A42CB9D82100803281 /* XCRemoteSwiftPackageReference "keychain-swift" */;
+			productName = KeychainSwift;
+		};
+		789342842CBA96BE00803281 /* FirebaseAuthCombine-Community */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 78E88C522CB8258F00A262A3 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = "FirebaseAuthCombine-Community";
+		};
+		78E88C412CB5CBA300A262A3 /* DifferenceKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 78E88C402CB5CBA300A262A3 /* XCRemoteSwiftPackageReference "DifferenceKit" */;
+			productName = DifferenceKit;
+		};
+		78E88C442CB5CBAD00A262A3 /* InputBarAccessoryView */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 78E88C432CB5CBAD00A262A3 /* XCRemoteSwiftPackageReference "InputBarAccessoryView" */;
+			productName = InputBarAccessoryView;
+		};
+		78E88C472CB5CBBE00A262A3 /* ChatLayout */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 78E88C462CB5CBBE00A262A3 /* XCRemoteSwiftPackageReference "ChatLayout" */;
+			productName = ChatLayout;
+		};
+		78E88C4B2CB5CBBE00A262A3 /* ChatLayoutStatic */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 78E88C462CB5CBBE00A262A3 /* XCRemoteSwiftPackageReference "ChatLayout" */;
+			productName = ChatLayoutStatic;
+		};
+		78E88C532CB8258F00A262A3 /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 78E88C522CB8258F00A262A3 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
+		78E88C552CB8258F00A262A3 /* FirebaseFirestore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 78E88C522CB8258F00A262A3 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestore;
+		};
+		78E88C572CB8258F00A262A3 /* FirebaseStorage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 78E88C522CB8258F00A262A3 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseStorage;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = 78E88AF02CB5C93400A262A3 /* Project object */;
+}
