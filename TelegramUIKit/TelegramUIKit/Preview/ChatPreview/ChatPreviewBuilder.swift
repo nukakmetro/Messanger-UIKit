@@ -1,15 +1,15 @@
 //
-// ChatLayout
-// ChatViewControllerBuilder.swift
+//  ChatPreviewBuilder.swift
+//  TelegramUIKit
 //
-// Created by Eugene Kazaev in 2020-2024.
-// Distributed under the MIT license.
+//  Created by surexnx on 28.10.2024.
+//
 
 import Foundation
 import UIKit
 
-struct ChatViewControllerBuilder {
-    func build(chat: Chat, userId: String) -> UIViewController {
+struct ChatPreviewControllerBuilder {
+    func build(chat: Chat, userId: String) -> ChatPreviewController {
         let repository = ChatRepository(chat: chat, userId: userId)
         let messageController = ChatViewModel(repository: repository, chat: chat, userId: userId)
         repository.delegate = messageController
@@ -20,9 +20,8 @@ struct ChatViewControllerBuilder {
                                                          editingDelegate: messageController)
 
 
-        let messageViewController = ChatViewController(chatController: messageController, dataSource: dataSource, editNotifier: editNotifier)
+        let messageViewController = ChatPreviewController(chatController: messageController, dataSource: dataSource)
         messageController.delegate = messageViewController
-        dataSource.swipeDelegate = messageViewController
         return messageViewController
     }
 }

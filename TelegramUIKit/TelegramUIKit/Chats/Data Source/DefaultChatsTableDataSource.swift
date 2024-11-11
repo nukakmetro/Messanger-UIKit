@@ -75,6 +75,4 @@ extension DefaultChatsTableDataSource: UITableViewDataSource {
             return cell
         }
     }
-    
-
 }

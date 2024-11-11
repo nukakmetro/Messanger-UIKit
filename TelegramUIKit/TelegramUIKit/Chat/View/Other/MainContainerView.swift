@@ -14,7 +14,12 @@ import ChatLayout
 import Foundation
 import UIKit
 
-final class MainContainerView<LeadingAccessory: StaticViewFactory, CustomView: UIView, TrailingAccessory: StaticViewFactory>: UIView, SwipeNotifierDelegate {
+protocol SwipeReplyDelegate: AnyObject {
+    func swipeHandler(_ gesture: UIPanGestureRecognizer, _ completion: @escaping ((CGFloat) -> ()))
+}
+
+final class MainContainerView<LeadingAccessory: StaticViewFactory, CustomView: UIView, TrailingAccessory: StaticViewFactory>: UIView, MainMessageSwipeHandler {
+
     var swipeCompletionRate: CGFloat = 0 {
         didSet {
             updateOffsets()
@@ -43,7 +48,7 @@ final class MainContainerView<LeadingAccessory: StaticViewFactory, CustomView: U
     }
 
     var accessoryView = DateAccessoryView()
-
+    
     var accessorySafeAreaInsets: UIEdgeInsets = .zero {
         didSet {
             guard accessorySafeAreaInsets != oldValue else {
@@ -67,6 +72,7 @@ final class MainContainerView<LeadingAccessory: StaticViewFactory, CustomView: U
     required init?(coder: NSCoder) {
         super.init(coder: coder)
         setupSubviews()
+
     }
 
     private func setupSubviews() {
@@ -119,5 +125,9 @@ final class MainContainerView<LeadingAccessory: StaticViewFactory, CustomView: U
         }
 
         accessoryView.transform = CGAffineTransform(translationX: -((accessoryView.bounds.width + accessorySafeAreaInsets.right) * swipeCompletionRate), y: 0)
+    }
+
+    func updateSwipeCompletionRate(_ newSwipeCompletionRate: CGFloat) {
+        swipeCompletionRate = newSwipeCompletionRate
     }
 }

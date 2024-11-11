@@ -1,5 +1,5 @@
 {
-  "originHash" : "2e940d35a0d3fbe42bcb531b8a5580ead026e042cb3dd20568b67865ba0d7ab3",
+  "originHash" : "a5c8b72754d200ac3424d094697762f8065f1fe1945ed9107b5705505d044a93",
   "pins" : [
     {
       "identity" : "abseil-cpp-binary",
@@ -26,6 +26,15 @@
       "state" : {
         "revision" : "49b2ca38ec486461093129e5d028faa61527e8f0",
         "version" : "2.0.10"
+      }
+    },
+    {
+      "identity" : "customblureffectview",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/perfectdim/CustomBlurEffectView",
+      "state" : {
+        "revision" : "a25e92fc90c0df9bdf79177974ba8581ea470905",
+        "version" : "0.0.3"
       }
     },
     {

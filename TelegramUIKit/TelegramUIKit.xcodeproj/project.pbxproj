@@ -10,6 +10,7 @@
 		7893419F2CB955CA00803281 /* SwiftUIIntrospect in Frameworks */ = {isa = PBXBuildFile; productRef = 7893419E2CB955CA00803281 /* SwiftUIIntrospect */; };
 		789341A62CB9D82200803281 /* KeychainSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 789341A52CB9D82200803281 /* KeychainSwift */; };
 		789342852CBA96BE00803281 /* FirebaseAuthCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = 789342842CBA96BE00803281 /* FirebaseAuthCombine-Community */; };
+		78D7C7AC2CE2254B000C2F41 /* CustomBlurEffectView in Frameworks */ = {isa = PBXBuildFile; productRef = 78D7C7AB2CE2254B000C2F41 /* CustomBlurEffectView */; };
 		78E88C422CB5CBA300A262A3 /* DifferenceKit in Frameworks */ = {isa = PBXBuildFile; productRef = 78E88C412CB5CBA300A262A3 /* DifferenceKit */; };
 		78E88C452CB5CBAD00A262A3 /* InputBarAccessoryView in Frameworks */ = {isa = PBXBuildFile; productRef = 78E88C442CB5CBAD00A262A3 /* InputBarAccessoryView */; };
 		78E88C482CB5CBBE00A262A3 /* ChatLayout in Frameworks */ = {isa = PBXBuildFile; productRef = 78E88C472CB5CBBE00A262A3 /* ChatLayout */; };
@@ -20,6 +21,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		78D7C7A62CE0B973000C2F41 /* Preview */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = Preview; path = /Users/surexnx/Documents/Preview; sourceTree = "<absolute>"; };
 		78E88AF82CB5C93400A262A3 /* TelegramUIKit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TelegramUIKit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -52,6 +54,7 @@
 				789341A62CB9D82200803281 /* KeychainSwift in Frameworks */,
 				78E88C482CB5CBBE00A262A3 /* ChatLayout in Frameworks */,
 				78E88C542CB8258F00A262A3 /* FirebaseAuth in Frameworks */,
+				78D7C7AC2CE2254B000C2F41 /* CustomBlurEffectView in Frameworks */,
 				78E88C422CB5CBA300A262A3 /* DifferenceKit in Frameworks */,
 				78E88C4C2CB5CBBE00A262A3 /* ChatLayoutStatic in Frameworks */,
 				78E88C582CB8258F00A262A3 /* FirebaseStorage in Frameworks */,
@@ -75,6 +78,7 @@
 		78E88AEF2CB5C93400A262A3 = {
 			isa = PBXGroup;
 			children = (
+				78D7C7A62CE0B973000C2F41 /* Preview */,
 				78E88AFA2CB5C93400A262A3 /* TelegramUIKit */,
 				789342832CBA96BE00803281 /* Frameworks */,
 				78E88AF92CB5C93400A262A3 /* Products */,
@@ -119,6 +123,7 @@
 				7893419E2CB955CA00803281 /* SwiftUIIntrospect */,
 				789341A52CB9D82200803281 /* KeychainSwift */,
 				789342842CBA96BE00803281 /* FirebaseAuthCombine-Community */,
+				78D7C7AB2CE2254B000C2F41 /* CustomBlurEffectView */,
 			);
 			productName = TelegramUIKit;
 			productReference = 78E88AF82CB5C93400A262A3 /* TelegramUIKit.app */;
@@ -155,6 +160,7 @@
 				78E88C522CB8258F00A262A3 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				7893419D2CB955CA00803281 /* XCRemoteSwiftPackageReference "SwiftUI-Introspect" */,
 				789341A42CB9D82100803281 /* XCRemoteSwiftPackageReference "keychain-swift" */,
+				78D7C7AA2CE2254B000C2F41 /* XCRemoteSwiftPackageReference "CustomBlurEffectView" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 78E88AF92CB5C93400A262A3 /* Products */;
@@ -402,6 +408,14 @@
 				minimumVersion = 24.0.0;
 			};
 		};
+		78D7C7AA2CE2254B000C2F41 /* XCRemoteSwiftPackageReference "CustomBlurEffectView" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/perfectdim/CustomBlurEffectView";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.0.3;
+			};
+		};
 		78E88C402CB5CBA300A262A3 /* XCRemoteSwiftPackageReference "DifferenceKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/ra1028/DifferenceKit";
@@ -451,6 +465,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 78E88C522CB8258F00A262A3 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = "FirebaseAuthCombine-Community";
+		};
+		78D7C7AB2CE2254B000C2F41 /* CustomBlurEffectView */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 78D7C7AA2CE2254B000C2F41 /* XCRemoteSwiftPackageReference "CustomBlurEffectView" */;
+			productName = CustomBlurEffectView;
 		};
 		78E88C412CB5CBA300A262A3 /* DifferenceKit */ = {
 			isa = XCSwiftPackageProductDependency;

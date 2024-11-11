@@ -14,7 +14,7 @@ import ChatLayout
 import Foundation
 import UIKit
 
-typealias TextMessageCollectionCell = ContainerCollectionViewCell<MessageContainerView<EditingAccessoryView, MainContainerView<AvatarView, TextMessageView, StatusView>>>
+typealias TextMessageCollectionCell = ContainerCollectionViewCell<DefaultMessageContainerView<EditingAccessoryView, MainContainerView<AvatarView, TextMessageView, StatusView>>>
 @available(iOS 13, *)
 typealias URLCollectionCell = ContainerCollectionViewCell<MessageContainerView<EditingAccessoryView, MainContainerView<AvatarView, URLView, StatusView>>>
 typealias ImageCollectionCell = ContainerCollectionViewCell<MessageContainerView<EditingAccessoryView, MainContainerView<AvatarView, ImageView, StatusView>>>
@@ -31,7 +31,8 @@ final class DefaultChatCollectionDataSource: NSObject, ChatCollectionDataSource 
 
     private let editNotifier: EditNotifier
 
-    private let swipeNotifier: SwipeNotifier
+
+    var swipeDelegate: SwipeReplyDelegate?
 
     var sections: [Section] = [] {
         didSet {
@@ -42,13 +43,11 @@ final class DefaultChatCollectionDataSource: NSObject, ChatCollectionDataSource 
     private var oldSections: [Section] = []
 
     init(editNotifier: EditNotifier,
-         swipeNotifier: SwipeNotifier,
          reloadDelegate: ReloadDelegate,
          editingDelegate: EditingAccessoryControllerDelegate) {
         self.reloadDelegate = reloadDelegate
         self.editingDelegate = editingDelegate
         self.editNotifier = editNotifier
-        self.swipeNotifier = swipeNotifier
     }
 
     func prepare(with collectionView: UICollectionView) {
@@ -66,11 +65,11 @@ final class DefaultChatCollectionDataSource: NSObject, ChatCollectionDataSource 
 
     private func createTextCell(collectionView: UICollectionView, messageId: String, indexPath: IndexPath, text: String, date: Date, alignment: ChatItemAlignment, user: User, bubbleType: Cell.BubbleType, status: MessageStatus, messageType: MessageType) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TextMessageCollectionCell.reuseIdentifier, for: indexPath) as! TextMessageCollectionCell
-        setupMessageContainerView(cell.customView, messageId: messageId, alignment: alignment)
+        setupMessageSwipeContainerView(cell.customView, messageId: messageId, alignment: alignment)
         setupMainMessageView(cell.customView.customView, user: user, alignment: alignment, bubble: bubbleType, status: status)
 
         setupSwipeHandlingAccessory(cell.customView.customView, date: date, accessoryConnectingView: cell.customView)
-
+        setupSwipeHandling(cell.customView)
         let bubbleView = cell.customView.customView.customView
         let controller = TextMessageController(text: text,
                                                type: messageType,
@@ -197,6 +196,19 @@ final class DefaultChatCollectionDataSource: NSObject, ChatCollectionDataSource 
         }
     }
 
+    private func setupMessageSwipeContainerView(_ messageContainerView: DefaultMessageContainerView<EditingAccessoryView, some Any>, messageId: String, alignment: ChatItemAlignment) {
+        messageContainerView.alignment = alignment
+        if let accessoryView = messageContainerView.accessoryView {
+            editNotifier.add(delegate: accessoryView)
+            accessoryView.setIsEditing(editNotifier.isEditing)
+
+            let controller = EditingAccessoryController(messageId: messageId)
+            controller.view = accessoryView
+            controller.delegate = editingDelegate
+            accessoryView.setup(with: controller)
+        }
+    }
+
     private func setupMainMessageView(_ cellView: MainContainerView<AvatarView, some Any, StatusView>,
                                       user: User,
                                       alignment: ChatItemAlignment,
@@ -225,9 +237,14 @@ final class DefaultChatCollectionDataSource: NSObject, ChatCollectionDataSource 
                                              accessoryConnectingView: UIView) {
         cellView.accessoryConnectingView = accessoryConnectingView
         cellView.accessoryView.setup(with: DateAccessoryController(date: date))
-        cellView.accessorySafeAreaInsets = swipeNotifier.accessorySafeAreaInsets
-        cellView.swipeCompletionRate = swipeNotifier.swipeCompletionRate
-        swipeNotifier.add(delegate: cellView)
+//        cellView.accessorySafeAreaInsets = swipeNotifier.accessorySafeAreaInsets
+//        cellView.swipeCompletionRate = swipeNotifier.swipeCompletionRate
+//        swipeNotifier.add(delegate: cellView)
+//        cellView.swipeDelegate = swipeDelegate
+    }
+
+    private func setupSwipeHandling(_ messageContainerView: DefaultMessageContainerView<EditingAccessoryView, some Any>) {
+        messageContainerView.swipeDelegate = swipeDelegate
     }
 
     private func buildTextBubbleController(bubbleView: BezierMaskedView<some Any>, messageType: MessageType, bubbleType: Cell.BubbleType) -> BubbleController {
@@ -427,3 +444,4 @@ extension DefaultChatCollectionDataSource: ChatLayoutDelegate {
         50
     }
 }
+

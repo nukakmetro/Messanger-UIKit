@@ -1,16 +1,15 @@
 //
-//  File.swift
+//  SettingsViewCell.swift
 //  TelegramUIKit
 //
-//  Created by surexnx on 16.10.2024.
+//  Created by surexnx on 23.10.2024.
 //
 
-import Foundation
 import UIKit
 
-final class ChatInfoView: UIView {
+final class SettingInfoView: UIView {
 
-    private var controller: ChatInfoController?
+    private var controller: SettingInfoController?
     private let dateWidth: CGFloat = 70
     private let avatarSize: CGFloat = 50
     private lazy var titleLabel = UILabel()
@@ -27,13 +26,13 @@ final class ChatInfoView: UIView {
         super.init(coder: coder)
         setupSubviews()
     }
-    
+
     public override func layoutSubviews() {
         super.layoutSubviews()
         avatar.layer.cornerRadius = avatar.bounds.width / 2
     }
 
-    func setup(with controller: ChatInfoController) {
+    func setup(with controller: SettingInfoController) {
         self.controller = controller
         reloadData()
     }
@@ -85,10 +84,7 @@ final class ChatInfoView: UIView {
         guard let controller else {
             return
         }
-        avatar.image = controller.avatar
-        textLabel.text = controller.text
-        titleLabel.text = controller.title
-        dateLabel.text = controller.date
+        
     }
-}
 
+}

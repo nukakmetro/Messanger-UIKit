@@ -50,6 +50,8 @@ final class ChatsViewController: UIViewController {
     private let minConstraintConstant: CGFloat = 0
     private let maxConstraintConstant: CGFloat = 40
 
+    private var selectedCell: IndexPath?
+
     fileprivate var isUserInitiatedScrolling: Bool {
         tableView.isDragging || tableView.isDecelerating
     }
@@ -71,6 +73,8 @@ final class ChatsViewController: UIViewController {
         navigationItem.title = "Chats"
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Изм.", style: .plain, target: self, action: #selector(ChatsViewController.setEditNotEdit))
         tableView = UITableView(frame: .zero)
+        let longPressGesture = UILongPressGestureRecognizer(target: self, action: #selector(handleLongPress(_:)))
+        tableView.addGestureRecognizer(longPressGesture)
 
         view.addSubview(tableView)
         tableView.alwaysBounceVertical = true
@@ -123,27 +127,42 @@ final class ChatsViewController: UIViewController {
         super.viewDidAppear(animated)
     }
 
+    @objc func handleLongPress(_ gesture: UILongPressGestureRecognizer) {
+        let location = gesture.location(in: tableView)
+
+        guard let indexPath = tableView.indexPathForRow(at: location) else { return }
+        self.selectedCell = indexPath
+
+        if gesture.state == .began {
+
+            let cell = tableView.cellForRow(at: indexPath)
+            guard let cell = cell else  { return }
+            var chat: Chat?
+            let cellInfo = dataSource.sections[indexPath.section].cells[indexPath.row]
+            switch cellInfo {
+                case .chat(let data):
+                chat = data
+            }
+            guard let chat = chat else { return }
+            guard let userId = UserKey().get() else { return }
+
+            let preview = ChatPreviewControllerBuilder().build(chat: chat, userId: userId)
+            preview.delegate = self
+            preview.modalPresentationStyle = .custom
+            preview.transitioningDelegate = self
+            present(preview, animated: true)
+
+        } else if gesture.state == .ended || gesture.state == .cancelled {
+            let cell = tableView.cellForRow(at: indexPath)
+        }
+    }
+
     private func processUpdates(with sections: [ChatsSection], animated: Bool = true, requiresIsolatedProcess: Bool, completion: (() -> Void)? = nil) {
-//        guard isViewLoaded else {
             dataSource.sections = sections
             return
-//        }
         tableView.reloadData()
-//        guard currentInterfaceActions.options.isEmpty else {
-//            let reaction = SetActor<Set<InterfaceActions>, ReactionTypes>.Reaction(type: .delayedUpdate,
-//                                                                                   action: .onEmpty,
-//                                                                                   executionType: .once,
-//                                                                                   actionBlock: { [weak self] in
-//                guard let self else {
-//                    return
-//                }
-//                processUpdates(with: sections, animated: animated, requiresIsolatedProcess: requiresIsolatedProcess, completion: completion)
-//            })
-//            currentInterfaceActions.add(reaction: reaction)
-//            return
-//        }
-
     }
+
     @objc
     private func setEditNotEdit() {
         isEditing = !isEditing
@@ -259,6 +278,86 @@ extension ChatsViewController: UIScrollViewDelegate {
 }
 
 extension ChatsViewController: UITableViewDelegate {
+    @available(iOS 13.0, *)
+    private func preview(for configuration: UIContextMenuConfiguration) -> UITargetedPreview? {
+        guard let identifier = configuration.identifier as? String else {
+            return nil
+        }
+        let components = identifier.split(separator: "|")
+        guard components.count == 2,
+              let sectionIndex = Int(components[0]),
+              let itemIndex = Int(components[1]),
+              let cell = tableView.cellForRow(at: IndexPath(item: itemIndex, section: sectionIndex)) as? ChatTableCell else {
+            return nil
+        }
+        guard let userId = UserKey().get() else { return nil }
+
+        let item = dataSource.sections[0].cells[itemIndex]
+        switch item {
+
+        case .chat(let chat):
+            let parameters = UIPreviewParameters()
+            let previewView = ChatPreviewControllerBuilder().build(chat: chat, userId: userId)
+
+            return UITargetedPreview(view: previewView.view, parameters: parameters)
+        }
+    }
+//    func tableView(_ tableView: UITableView, previewForDismissingContextMenuWithConfiguration configuration: UIContextMenuConfiguration) -> UITargetedPreview? {
+//        preview(for: configuration)
+//    }
+//
+//    func tableView(_ tableView: UITableView, previewForHighlightingContextMenuWithConfiguration configuration: UIContextMenuConfiguration) -> UITargetedPreview? {
+//        preview(for: configuration)
+//    }
+//
+//    func tableView(_ tableView: UITableView, contextMenuConfigurationForRowAt indexPath: IndexPath, point: CGPoint) -> UIContextMenuConfiguration? {
+//        guard !currentInterfaceActions.options.contains(.showingPreview),
+//              !currentControllerActions.options.contains(.updatingCollection) else {
+//            return nil
+//        }
+//        let item = dataSource.sections[indexPath.section].cells[indexPath.item]
+//        switch item {
+//        case .chat(let chat):
+//            let actions = [UIAction(title: "Copy", image: nil, identifier: nil) { body in
+//                let pasteboard = UIPasteboard.general
+//            }]
+//            let menu = UIMenu(title: "", children: actions)
+//            // Custom NSCopying identifier leads to the crash. No other requirements for the identifier to avoid the crash are provided.
+//            let identifier: NSString = "\(indexPath.section)|\(indexPath.item)" as NSString
+//            currentInterfaceActions.options.insert(.showingPreview)
+//            return UIContextMenuConfiguration(identifier: identifier, previewProvider: nil, actionProvider: { _ in menu })
+//        }
+//    }
+
+    func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let editAction = UIContextualAction(style: .normal, title: "Редактировать") { (action, view, completionHandler) in
+            print("Редактирование ячейки \(indexPath.row)")
+            completionHandler(true)
+        }
+        editAction.backgroundColor = .blue
+
+        let pinAction = UIContextualAction(style: .normal, title: "Закрепить") { (action, view, completionHandler) in
+            print("Закрепление ячейки \(indexPath.row)")
+            completionHandler(true)
+        }
+        pinAction.backgroundColor = .orange
+
+        return UISwipeActionsConfiguration(actions: [editAction, pinAction])
+    }
+    
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let deleteAction = UIContextualAction(style: .destructive, title: "Удалить") { (action, view, completionHandler) in
+            print("Удаление ячейки \(indexPath.row)")
+            completionHandler(true)
+        }
+
+        let moreAction = UIContextualAction(style: .normal, title: "Еще") { (action, view, completionHandler) in
+            print("Дополнительные действия для ячейки \(indexPath.row)")
+            completionHandler(true)
+        }
+        moreAction.backgroundColor = .gray
+        return UISwipeActionsConfiguration(actions: [deleteAction, moreAction])
+    }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let cell = dataSource.sections[indexPath.section].cells[indexPath.item]
@@ -278,5 +377,23 @@ extension ChatsViewController: ChatsControllerDelegate {
 
     func update(with sections: [ChatsSection], requiresIsolatedProcess: Bool) {
         processUpdates(with: sections, animated: true, requiresIsolatedProcess: requiresIsolatedProcess)
+    }
+}
+extension ChatsViewController: UIViewControllerTransitioningDelegate {
+
+    func presentationController(forPresented presented: UIViewController, presenting: UIViewController?, source: UIViewController) -> UIPresentationController? {
+        return DimmingPresentationController(presentedViewController: presented, presenting: presenting)
+    }
+
+    func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        guard let selectedCell = selectedCell,
+              let selectedFrame = tableView.cellForRow(at: selectedCell)?.frame else { return nil }
+        return PresentingAnimator(originFrame: selectedFrame)
+    }
+}
+
+extension ChatsViewController: UIPreviewControllerDelegate {
+    func dismiss() {
+        dismiss(animated: true)
     }
 }
